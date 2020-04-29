@@ -64,11 +64,6 @@ export default function(App) {
       // mount 要在 mp.status = 'load';赋值之后，不然mount方法会重复添加微信Page
       // 具体原因参考mpvue核心库源码，_initMP方法
       app.$mount()
-      // fixed by huangliangxing
-      // 只有页面初始化时需要 setData
-      rootVueVM.$nextTick(function() {
-        rootVueVM._initDataToMP()
-      })
     },
     handleProxy: function handleProxy(e) {
       var rootVueVM = getRootVueVm(this)
@@ -81,6 +76,10 @@ export default function(App) {
       var mp = rootVueVM.$mp
       mp.status = 'show'
       callHook$1(rootVueVM, 'onShow')
+      // 只有页面需要 setData
+      rootVueVM.$nextTick(function() {
+        rootVueVM._initDataToMP()
+      })
     },
 
     // 生命周期函数--监听页面初次渲染完成
