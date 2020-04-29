@@ -72,6 +72,5 @@ enjoy，其他工程代码不需要修改
 ## 改动
 搜索fixed by huangliangxing即可看到改动点：
 
-+ 1、源码中handleError未定义，在小程序中直接使用console.error()即可。
-+ 2、rootVueVM._initDataToMP()在onLoad中执行即可，在onShow不需要额外执行。
-+ 3、源码中有多余的重复hook，已去除。
++ 1、源码中handleError未定义，在小程序中直接使用console.error()即可。。
++ 2、源码中有多余的重复hook，已去除。
